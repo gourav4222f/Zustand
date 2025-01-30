@@ -1,9 +1,18 @@
-import ShowData from "./components/ShowData";
+import ProductCard from "./components/ProductCard";
+import Sidebar from "./components/Sidebar";
+import { data } from "./Db/data";
+
+
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      <ShowData />
-    </h1>
+    <>
+      <Sidebar />
+      <div className="p-4 flex flex-wrap justify-center items-center">
+        {data.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </div>
+    </>
   )
 }
